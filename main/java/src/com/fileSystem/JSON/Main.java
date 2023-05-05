@@ -1,6 +1,7 @@
 package com.fileSystem.JSON;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
@@ -44,6 +45,7 @@ public class Main {
     }
     @JsonAutoDetect
     public static class Cat extends Pet {
+        @JsonProperty ("Alias")
         public int age;
         public int weight;
     }
