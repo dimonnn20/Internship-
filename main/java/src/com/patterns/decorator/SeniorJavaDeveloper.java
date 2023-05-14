@@ -6,7 +6,7 @@ public class SeniorJavaDeveloper extends DeveloperDecorator{
         super(developer);
     }
     public String makeCodeReview () {
-        return "Senior is making code rewiew";
+        return "Senior is making code review";
     }
 
     @Override
