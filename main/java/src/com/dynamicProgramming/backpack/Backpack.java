@@ -11,10 +11,7 @@ public class Backpack {
         int maxWeight = 13;
 
         int[][] A;
-        A = new int[count + 1][];
-        for (int i = 0; i < count + 1; i++) {
-            A[i] = new int[maxWeight + 1];
-        }
+        A = new int[count + 1][maxWeight+1];
 
         for (int k = 0; k <= count; k++) {
             for (int s = 0; s <= maxWeight; s++) {
@@ -29,6 +26,16 @@ public class Backpack {
                 }
             }
         }
+        //====================================================
+        for (int i = 0; i<=count; i++){
+            for (int j =0; j <= maxWeight; j++){
+                System.out.print(A[i][j]+" ");
+            }
+            System.out.println();
+        }
+        //======================================================
+
+
         ArrayList<Integer> result = new ArrayList<>();
         traceResult(A,weights,count,maxWeight,result);
         for (Integer i: result){
