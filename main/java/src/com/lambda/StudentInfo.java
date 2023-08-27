@@ -1,6 +1,8 @@
 package com.lambda;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class StudentInfo {
     void testStudents(ArrayList<Student> al, StudentChecks sc) {
@@ -50,17 +52,31 @@ class Test {
         students.add(st4);
         students.add(st5);
 
-        StudentInfo info = new StudentInfo();
-        info.testStudents(students, new CheckStudentsOverGrade());
-        System.out.println("-------------------------------");
-        info.testStudents(students, new StudentChecks() {
-            @Override
-            public boolean check(Student s) {
-                return s.age < 30;
-            }
-        });
-        System.out.println("-------------------------------");
-        info.testStudents(students, (Student s) -> {return s.age < 30;});
+      StudentInfo info = new StudentInfo();
+
+//        Collections.sort(students, new Comparator<Student>() {
+//            @Override
+//            public int compare(Student o1, Student o2) {
+//                return o1.course-o2.course;
+//            }
+//        });
+        Collections.sort(students,(student1,student2)-> {return student1.course-student2.course;});
+        
+
+        System.out.println(students);
+//        info.testStudents(students, new CheckStudentsOverGrade());
+//      System.out.println("-------------------------------");
+//        info.testStudents(students, new StudentChecks() {
+//            @Override
+//            public boolean check(Student s) {
+//                return s.age < 30;
+//            }
+//        });
+//        System.out.println("-------------------------------");
+//        info.testStudents(students, (Student s) -> {return s.age < 30;});
+//         info.testStudents(students, s -> s.age < 30);
+//        StudentChecks sc = (Student s) -> {return s.age<30;};
+//        info.testStudents(students,sc);
     }
 }
 
