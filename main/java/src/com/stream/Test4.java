@@ -1,8 +1,6 @@
 package com.stream;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class Test4 {
     public static void main(String[] args) {
@@ -39,5 +37,19 @@ public class Test4 {
         strings.add("poka");
         String result3 = strings.stream().reduce((a,e)-> a+ " "+e).get();
         System.out.println(result3);
+
+        Map<Integer,Integer> denominations = new HashMap<>();
+        denominations.put(100,5);
+        denominations.put(200,10);
+
+        int sum = 0;
+        for (Map.Entry<Integer, Integer> m:denominations.entrySet()){
+            sum += m.getValue()*m.getKey();
+        }
+        System.out.println("summa w for-each= "+sum);
+        Integer i = denominations.entrySet().stream()
+                .mapToInt(entry -> (entry.getKey() * entry.getValue()))
+                .sum();
+        System.out.println("Summa iz Lamdy = "+i);
     }
 }
