@@ -69,7 +69,7 @@ public class Main {
             if (denominations.get(key) != 0 && denominations.get(key) <= ax) {
                 ax = denominations.get(key);
             }
-            map.put(key, (map.get(a[iMax][0]) + ax));
+            map.put(key, (map.get(a[iMax]   [0]) + ax));
             sum = sum - ax * key;
             iMax = iMax - 1;
         }
@@ -129,6 +129,12 @@ class Person {
     public Person(int id, String name) {
         this.id = id;
         this.name = name;
+    }
+    public void eat (){
+        System.out.println("Just eat");
+    }
+    public Person() {
+
     }
 
     public int getId() {
